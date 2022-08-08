@@ -2,7 +2,7 @@
 
 Source: [YouTube Data API v3](https://developers.google.com/youtube/v3/)
 
-This application extracts data from YouTube Data API v3 that scraps videos of a channel with tags and statistics. This application also has a scheduler that tracks changes of video statistics (viewCount, likeCount, favoriteCount, commentCount) and tags every 3 mintues and store them into the postgreSQL database.
+This application extracts data from YouTube Data API v3 that scraps videos of a channel with tags and statistics. This application also has a scheduler that tracks changes of video statistics (viewCount, likeCount, favoriteCount, commentCount) and tags every 3 mintues and store and update them into the postgreSQL database.
 
 The scheduler also tracks the video performance by taking an initial performance score of viewCount of each video by diving viewCount of all the videos of a channel median and compares with the first hours viewCount of a video by diving viewCount of all the videos of a channel for first hour (60 minutes later) and update the initial score in the database.
 
