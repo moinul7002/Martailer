@@ -1,8 +1,14 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-# Create your models here.
+
+"""
+Model Creation
+"""
 
 class YTstats(models.Model):
+    """
+    YouTube Statistics Model Creation 
+    """
 
     video_id = models.CharField(_('Video ID'), max_length=255, null=True, blank=True)
     viewCount = models.CharField(_('View Count'), max_length=255, null=True, blank=True)
@@ -17,6 +23,9 @@ class YTstats(models.Model):
         return self.video_id
 
 class YTperf(models.Model):
+    """
+    YouTube Video Performance Model
+    """
 
     vid = models.OneToOneField(
         YTstats,
