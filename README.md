@@ -69,6 +69,19 @@ The docker-compose will run all the containerized services associated with the a
 `http://0.0.0.0:8000/`
 
 
+### Frontend
+
+1. In the terminal, go to frontend directory.
+
+`cd frontend`
+
+2. Create [React App](https://github.com/facebook/create-react-app)
+
+`npx create-react-app .`
+
+3. Go to the development server `http://127.0.0.1:3000`
+
+
 ### API
 
 1. Get all the video data
@@ -87,9 +100,9 @@ In the terminal, run `docker-compose run --rm app sh -c 'python manage.py test'`
 
 ### Docker
 
-1. Using docker compose,
+1. Using docker compose, run
 
-Run `docker-compose up -d`
+`docker-compose up -d`
 
 2. Stop all the containers,
 
@@ -102,5 +115,6 @@ Run `docker-compose up -d`
 
 N.B: if you find any postgreSQL port 5432 issue, please remove all the containers and run them again.
 
+Finally, `deactivate` the virtual environment.
 
-
+Thanks.
