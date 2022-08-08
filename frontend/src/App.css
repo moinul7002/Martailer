@@ -1,0 +1,16 @@
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dBlock {
+  display: block;
+}
+.dNone {
+  display: none;
+}
+.list-wrapper {
+  width: 900px;
+  height: auto;
+  margin: 0 auto;
+}

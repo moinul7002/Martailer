@@ -1,0 +1,66 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: django_container
+    build:
+      context: ./app
+    command: >
+      sh -c "python manage.py migrate --run-syncdb &&
+             python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - 8000:8000
+    volumes:
+      - ./app:/app
+    environment:
+      - SECRET_KEY=bdsecretkey
+      - DEBUG=1
+      - DB_HOST=db
+      - DB_NAME=bddb
+      - DB_USER=bduser
+      - DB_PASS=moinul
+    depends_on:
+      - db
+
+  db:
+    container_name: postgresql_container
+    image: postgres:13-alpine
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      - POSTGRES_DB=bddb
+      - POSTGRES_USER=bduser
+      - POSTGRES_PASSWORD=moinul
+    volumes:
+      - ./local_pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "5050:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=moinulislam7002@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+  frontend:
+    container_name: react_container
+    build: ./frontend
+    volumes:
+      - ./frontend:/frontend
+      - /frontend/node_modules
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - app
+    command: npm start
+
+volumes:
+  pgadmin-data:
