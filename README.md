@@ -1,4 +1,6 @@
-## Youtube Statistics
+## YouTube Statistics
+
+Source: [YouTube Data API v3](https://developers.google.com/youtube/v3/)
 
 This application extracts data from YouTube Data API v3 that scraps videos of a channel with tags and statistics. This application also has a scheduler that tracks changes of video statistics (viewCount, likeCount, favoriteCount, commentCount) and tags every 3 mintues and store them into the postgreSQL database.
 
