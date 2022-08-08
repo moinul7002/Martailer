@@ -12,7 +12,7 @@ from django.contrib.postgres.search import (SearchVector, SearchQuery)
 
 
 class CustomPageNumber(PageNumberPagination):
-    page_size = 100
+    page_size = 50
 
     def get_paginated_response(self, data):
         return Response(OrderedDict([
