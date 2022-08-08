@@ -2,7 +2,7 @@ from .youtube_statistics import YTStats
 import schedule
 import time
 
-API_KEY = "AIzaSyA-DPbYvdAHukZv_PRds602JVuZE9oQbyE" #add api_key here
+API_KEY = "AIzaSyBXKLfnBCE39OGpOv_88eXLKTpOhFlwqV4" #add api_key here
 channel_id = 'UCvBhHog2dCsBSJw0F_fdlfA' #add channel id here
 
 class FetchData:
