@@ -4,6 +4,9 @@ from .api.serializers import *
 from .models import *
 
 class VideoListTestCase(APITestCase):
+    """
+    Listing Endpoint Test Cases
+    """
 
     def setUp(self):
         self.video_stat = YTstats.objects.create(video_id='Mefr3Ftg',viewCount='35467',likeCount='2467',favoriteCount='8765',commentCount='87675',tags='2022,bangla,bangla song,viral')
@@ -20,6 +23,9 @@ class VideoListTestCase(APITestCase):
 
 
 class SearchViewTestCase(APITestCase):
+    """
+    Search and Filtering API Endpoint Test Cases
+    """
 
     def setUp(self):
         self.video_stat = YTstats.objects.create(video_id='Mefr3Ftg',viewCount='35467',likeCount='2467',favoriteCount='8765',commentCount='87675',tags='2022,bangla,bangla song,viral')
