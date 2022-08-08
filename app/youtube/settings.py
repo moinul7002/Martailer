@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from logging import INFO
 import os
 from pathlib import Path
-# from youtube.logging_formatters import CustomJsonFormatter
-# from .logging_formatters import CustomJsonFormatter
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -97,34 +95,6 @@ DATABASES = {
     }
 }
 
-# LOGGING ={
-#     'version' : 1,
-#     'disable_existing_loggers': False,
-
-#     'formatters':{
-#         'main_formatter':{
-#             '()': CustomJsonFormatter,
-#             "style" : "{",
-#         }
-#     },
-
-#     'handlers': {
-#         'file': {
-#             'class' : 'logging.FileHandler',
-#             'filename' : 'blood_donation.log',
-#             'formatter' : 'main_formatter',
-#         },
-#     },
-
-#     'loggers': {
-#         'main': {
-#             'handlers' : ['file'],
-#             'propagate' : True,
-#             'level' : INFO,
-#         }
-#     },
-
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
