@@ -9,15 +9,11 @@ The scheduler is programmed to run for 20 iterations of 3 minutes each (total 1 
 
 ### Services:
 
-1. Django Rest Framework
+1. app - Django Rest Framework
    
-2. PostgreSQL Database
+2. local_pgdb - PostgreSQL Database
    
-3. pgadmin4
-   
-4. React.js, Material-UI
-   
-5. Docker Containerization
+3. frontend - React.js, Material-UI
 
 
 ### Installation:
