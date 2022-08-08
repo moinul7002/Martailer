@@ -54,6 +54,8 @@ The scheduler is programmed to run for 20 iterations of 3 minutes each (total 1 
 
 4. Migrate the DB
 
+`docker-compose run --rm app sh -c "python manage.py makemigrations"`
+
 `docker-compose run --rm app sh -c "python manage.py migrate --run-syncdb"`
 
 5. Execute Docker Compose file
