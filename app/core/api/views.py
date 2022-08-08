@@ -9,6 +9,7 @@ from .serializers import *
 from core.models import *
 from collections import OrderedDict
 from django.contrib.postgres.search import (SearchVector, SearchQuery)
+from .main import FetchData
 
 
 class CustomPageNumber(PageNumberPagination):
