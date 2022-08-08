@@ -32,7 +32,7 @@ class FetchData:
         mT.dumpTsat()
         if(mT.timeCount == 20):
             mT.indVideoPerformance()
-        return schedule.CancelJob
+            return schedule.CancelJob
 
     schedule.every(3).minutes.do(cronTask, yt=yt)
 
