@@ -5,7 +5,9 @@ from itertools import count
 import statistics
 from ..models import *
 
-
+"""
+Extract the statistics and tags from videos of a channel from YouTube Data API v3 with channel id and api_key
+"""
 class YTStats:
     _timeCount = count(0)
     
