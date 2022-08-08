@@ -7,7 +7,8 @@ channel_id = 'UCvBhHog2dCsBSJw0F_fdlfA' #add channel id here
 
 class FetchData:
     """
-    Get the Youtube video statistics and tags for each video id of a channel
+    01. Extract Youtube video statistics and tags for each video id of a channel.
+    02. Get Initial Individual Video Performance by the individual video view count divided by the channel's all videos view count median.
     """
     yt = YTStats(API_KEY, channel_id)
     yt.get_channel_data()
@@ -18,9 +19,9 @@ class FetchData:
 
     def cronTask(yt):
         """
-        Iterate the process with a time interval of 3 minutes for 20 times.
-        At 60th minutes, the performance score for each video will be generated.
-        After that, the scheduler will shut off.
+        01. Iterate the process with 3 minutes time interval for 1 hour.
+        02. Get the 1st hour performance score for each video using view count divided by the channel's all videos view count median.
+        03. Scheduler will run for 1 hour and then will exit.
         """
         mT = YTStats(API_KEY, channel_id)
         mT.get_channel_data()
