@@ -52,13 +52,13 @@ The scheduler is programmed to run for 20 iterations of 3 minutes each (total 1 
 
 3. Add superuser with login credentials
 
-`docker-compose run --rm app sh -c "python manage.py createsuperuser"`
+`python manage.py createsuperuser`
 
 4. Migrate the DB
 
-`docker-compose run --rm app sh -c "python manage.py makemigrations"`
+`python manage.py makemigrations`
 
-`docker-compose run --rm app sh -c "python manage.py migrate --run-syncdb"`
+`python manage.py migrate --run-syncdb`
 
 5. Execute Docker Compose file
 
@@ -67,6 +67,8 @@ The scheduler is programmed to run for 20 iterations of 3 minutes each (total 1 
 The docker-compose will run all the containerized services associated with the application and the Django development server will start at
 
 `http://0.0.0.0:8000/`
+
+Please wait for the scheduler to complete its task. As it will run for 1 hour before exiting, I recommend to change the `time_count` and `wait_time_in_minutes` variables from `main.py` to your preference.
 
 
 ### Frontend
