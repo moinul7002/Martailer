@@ -50,15 +50,23 @@ The scheduler is programmed to run for 20 iterations of 3 minutes each (total 1 
 
 `pip install -r requirements.txt`
 
-3. Add superuser with login credentials
+** Comment out the following line from `/app/core/api/views.py`
 
-`python manage.py createsuperuser`
+`from .main import FetchData`
 
-4. Migrate the DB
+This will allow you to run Django for the first time to migrate the DB and create superuser without causing `Django.db.utils.ProgrammingError: relation .. does not exist`. Because running migrations and creating superuser triggers the system checks to run, which causes the views to load. There isn't an option to disable this. We could call `@ratelimit` that allows to pass a callable, but one disadvantage is that it will run SQL query every time the view runs that could affect performance.
 
-`python manage.py makemigrations`
+3. Migrate the DB
 
-`python manage.py migrate --run-syncdb`
+`docker-compose run --rm app sh -c "python manage.py makemigrations"`
+
+`docker-compose run --rm app sh -c "python manage.py migrate --run-syncdb"`
+
+4. Add superuser with login credentials
+
+`docker-compose run --rm app sh -c "python manage.py createsuperuser"`
+
+** Now, uncomment the previous line from `/app/core/api/views.py`
 
 5. Execute Docker Compose file
 
