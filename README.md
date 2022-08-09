@@ -85,11 +85,7 @@ Please wait for the scheduler to complete its task. As it will run for 1 hour be
 
 `cd frontend`
 
-2. Create [React App](https://github.com/facebook/create-react-app)
-
-`npx create-react-app .`
-
-3. Go to the development server `http://127.0.0.1:3000`
+2. Go to the development server `http://127.0.0.1:3000`
 
 
 ### API
