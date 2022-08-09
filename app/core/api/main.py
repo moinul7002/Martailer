@@ -10,6 +10,7 @@ class FetchData:
     01. Extract Youtube video statistics and tags for each video id of a channel.
     02. Get Initial Individual Video Performance by the individual video view count divided by the channel's all videos view count median.
     """
+    wait_time = 3
     yt = YTStats(API_KEY, channel_id)
     yt.get_channel_data()
     yt.get_channel_video_data()
@@ -23,6 +24,7 @@ class FetchData:
         02. Get the 1st hour performance score for each video using view count divided by the channel's all videos view count median.
         03. Scheduler will run for 1 hour and then will exit.
         """
+        time_count = 20
         mT = YTStats(API_KEY, channel_id)
         mT.get_channel_data()
         mT.get_channel_video_data()
@@ -30,11 +32,11 @@ class FetchData:
         currentState = mT.returnCurrentState()
         yt.checkStats(currentStats=currentState)
         mT.dumpTsat()
-        if(mT.timeCount == 20):
+        if(mT.timeCount == time_count):
             mT.indVideoPerformance()
             return schedule.CancelJob
 
-    schedule.every(3).minutes.do(cronTask, yt=yt)
+    schedule.every(wait_time).minutes.do(cronTask, yt=yt)
 
     while True:
         schedule.run_pending()
