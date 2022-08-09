@@ -94,9 +94,19 @@ Please wait for the scheduler to complete its task. As it will run for 1 hour be
 
 `http://127.0.0.1:8000/api/list-of-videos/`
 
-2. Search
+2. Search by Tags & Filter by Performance
 
-`http://127.0.0.1:8000/api/search?q=2022&f=ASC`
+`http://127.0.0.1:8000/api/search?q=&f=` # Get all data
+
+`http://127.0.0.1:8000/api/search?q=2022&f=` # Get data by tags
+
+`http://127.0.0.1:8000/api/search?q=&f=ASC` # Sort performance in ascending order
+
+`http://127.0.0.1:8000/api/search?q=&f=DESC` # Sort performance in descending order
+
+`http://127.0.0.1:8000/api/search?q=2022&f=ASC` # Get data by searching tags and sort the searched data in ascending order
+
+`http://127.0.0.1:8000/api/search?q=2022&f=DESC` # Get data by searching tags and sort the searched data in descending order
 
 
 ### API Testing
