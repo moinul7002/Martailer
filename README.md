@@ -54,7 +54,11 @@ The scheduler is programmed to run for 20 iterations of 3 minutes each (total 1 
 
 `from .main import FetchData`
 
-This will allow you to run Django for the first time to migrate the DB and create superuser without causing `Django.db.utils.ProgrammingError: relation .. does not exist`. Because running migrations and creating superuser triggers the system checks to run, which causes the views to load. There isn't an option to disable this. We could call `@ratelimit` that allows to pass a callable, but one disadvantage is that it will run SQL query every time the view runs that could affect performance.
+This will allow you to run Django for the first time to migrate the DB and create superuser without causing `Django.db.utils.ProgrammingError: relation .. does not exist`. Because running migrations and creating superuser triggers the system checks to run, which causes the views to load. There isn't an option to disable this. We could call `@ratelimit` decorator that allows to pass a callable, but one disadvantage is that it will run SQL query every time the view runs that could affect performance.
+
+In general, we want to avoid database queries when modules load as well as causing issues with migrations. It can cause issues when running tests while using try-catch exception in the decorator and queries go to the live DB before the test database has been created.
+
+As this project is for development only and also has an API testing, I prefer commenting the line rather than using `@ratelimit` decorator.
 
 3. Migrate the DB
 
@@ -88,11 +92,11 @@ Please wait for the scheduler to complete its task. As it will run for 1 hour be
 2. Go to the development server `http://127.0.0.1:3000`
 
 
-### API
+### API Endpoints
 
 1. Get all the video data
 
-`http://127.0.0.1:8000/api/list-of-videos/`
+`http://127.0.0.1:8000/api/list-of-videos/` #Working endpoint but not needed for frontend
 
 2. Search by Tags & Filter by Performance
 
